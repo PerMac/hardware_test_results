@@ -5,6 +5,14 @@ name: Check Results
 
 on: pull_request
 
+env:
+  PR_URL: ${{github.event.pull_request.html_url}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -49,10 +57,10 @@ jobs:
             if [ $? -eq 0 ]
             then
               echo "Results file succesfully verified"
+              gh pr review --approve "$PR_URL"
             else
               echo "Results file verification failed"
               exit 1
             fi
           fi
         done
-

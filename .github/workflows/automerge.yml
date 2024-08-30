@@ -1,0 +1,35 @@
+# Copyright (c) 2024 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+name: Auto-merge results
+on:
+  workflow_run:
+    workflows: ["Check Results"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  TRUSTED_AUTHORS: ("PerMac" "hakehuang")
+  PR_URL: ${{github.event.pull_request.html_url}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ contains(env.TRUSTED_AUTHORS, github.actor) && 
+           contains( github.event.pull_request.labels.*.name, 'results') }}
+      - name: Enable auto-merge for trusted authors
+        run: gh pr merge --auto --rebase "$PR_URL"
+
+    if: ${{ !contains(env.TRUSTED_AUTHORS, github.actor) }}
+      - name: Not trusted author
+        run: echo "PR's author is not among trusted authors. Auto-merge not enable"
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo "Results verification failed. No auto-merge."
