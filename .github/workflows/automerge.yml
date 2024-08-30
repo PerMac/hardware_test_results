@@ -1,0 +1,52 @@
+# Copyright (c) 2024 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+name: Auto-merge results
+on:
+  workflow_run:
+    workflows: ["Check Results"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  TRUSTED_AUTHORS: '["PerMac", "hakehuang"]'
+  PR_URL: ${{github.event.pull_request.html_url}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+jobs:
+  on-success:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Debug authors
+        run: |
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          PR_LABELS="${{ github.event.pull_request.labels.*.name }}"
+          IS_TRUSTED="${{ contains(fromJson('["PerMac", "hakehuang"]'), $PR_AUTHOR) }}"
+          IS_LABEL="${{ contains( $PR_LABELS, 'results') }}"
+
+          echo "Trusted authors $TRUSTED_AUTHORS"
+          echo "PR author $PR_AUTHOR"
+          echo "PR labels $PR_LABELS"
+          echo "IS TRUSTED $IS_TRUSTED"
+          echo "IS LABEL $IS_LABEL"
+
+      - name: Enable auto-merge for trusted authors
+        if: ${{ contains(fromJson('["PerMac", "hakehuang"]'), github.actor) &&
+              contains( github.event.pull_request.labels.*.name, 'results') }}
+        run: gh pr merge --auto --rebase "$PR_URL"
+
+      - name: Not trusted author
+        if: ${{ !contains(fromJson(env.TRUSTED_AUTHORS), github.actor) }}
+        run: echo "PR's author is not among trusted authors. Auto-merge not enable"
+
+  on-failure:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Results verification failed. No auto-merge."
