@@ -70,3 +70,36 @@ jobs:
             fi
           fi
         done
+    - name: Auto-merge
+      id: auto-merge
+      env:
+        TRUSTED_AUTHORS: |
+          (
+            "PerMac111"
+            "hakehuang"
+          )
+      run: |
+          AUTHOR_USERNAME: ${{ github.event.pull_request.user.login }}"
+          TRUSTED_AUTHORS=${{ env.TRUSTED_AUTHORS }}
+          IS_LABEL_RESULTS="${{ contains( github.event.pull_request.labels.*.name, 'results') }}"
+          echo "IS_LABEL_RESULTS ${IS_LABEL_RESULTS}"
+          echo "Checking if ${AUTHOR_USERNAME} is a trusted author..."
+          AUTHOR_FOUND=false
+          for item in ${TRUSTED_AUTHORS[*]}
+          do
+            if [[ "$item" == ${AUTHOR_USERNAME} ]]
+            then
+              echo "Found trusted author"
+              AUTHOR_FOUND=true
+            fi
+          done
+          echo "Author found is ${AUTHOR_FOUND}"
+          if [[ ${AUTHOR_FOUND} && ${IS_LABEL_RESULTS}]]
+          then
+            echo "enabling auto-merge"
+            gh pr merge --auto --rebase "$PR_URL"
+          else
+            echo "PR's author is not among trusted authors. Auto-merge not enable"
+          fi
+
+
