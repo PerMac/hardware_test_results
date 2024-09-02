@@ -11,39 +11,51 @@ permissions:
   contents: write
   pull-requests: write
 
-env:
-  TRUSTED_AUTHORS: '["PerMac", "hakehuang"]'
-  PR_URL: ${{github.event.pull_request.html_url}}
-  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
 jobs:
   on-success:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    env:
+      PR_URL: ${{github.event.workflow_run.html_url}}
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      TRUSTED_AUTHORS: |
+        (
+          "PerMac"
+          "hakehuang"
+        )
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Debug authors
         run: |
-          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
-          PR_LABELS="${{ github.event.pull_request.labels.*.name }}"
-          IS_TRUSTED="${{ contains(fromJson('["PerMac", "hakehuang"]'), $PR_AUTHOR) }}"
-          IS_LABEL="${{ contains( $PR_LABELS, 'results') }}"
+          PR_AUTHOR="${{ github.event.workflow_run.user.login }}"
+          PR_LABELS="${{ github.event.workflow_run.labels.*.name }}"
+          IS_LABEL="${{ contains( github.event.workflow_run.labels.*.name, 'results') }}"
+          TRUSTED_AUTHORS = ${{ env.TRUSTED_AUTHORS }}
 
-          echo "Trusted authors $TRUSTED_AUTHORS"
-          echo "PR author $PR_AUTHOR"
-          echo "PR labels $PR_LABELS"
-          echo "IS TRUSTED $IS_TRUSTED"
-          echo "IS LABEL $IS_LABEL"
+          echo "Trusted authors ${TRUSTED_AUTHORS}"
+          echo "PR author ${PR_AUTHOR}"
+          echo "PR labels ${PR_LABELS}"
+          echo "IS LABEL ${IS_LABEL}"
 
-      - name: Enable auto-merge for trusted authors
-        if: ${{ contains(fromJson('["PerMac", "hakehuang"]'), github.actor) &&
-              contains( github.event.pull_request.labels.*.name, 'results') }}
-        run: gh pr merge --auto --rebase "$PR_URL"
+          echo "Checking if ${PR_AUTHOR} is a trusted author..."
+          AUTHOR_FOUND=0
+          for item in ${TRUSTED_AUTHORS[*]}
+          do
+            if [[ "$item" == ${PR_AUTHOR} ]]
+            then
+              echo "Found trusted author"
+              AUTHOR_FOUND=1
+            fi
+          done
 
-      - name: Not trusted author
-        if: ${{ !contains(fromJson(env.TRUSTED_AUTHORS), github.actor) }}
-        run: echo "PR's author is not among trusted authors. Auto-merge not enable"
+          if [[ ${AUTHOR_FOUND} == 1 ]]
+          then
+            echo "enabling auto-merge"
+            gh pr merge --auto --rebase "$PR_URL"
+          else
+            echo "PR's author is not among trusted authors. Auto-merge not enable"
+          fi
 
   on-failure:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
