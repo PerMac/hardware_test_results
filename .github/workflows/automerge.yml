@@ -24,18 +24,16 @@ jobs:
           "hakehuang"
         )
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
       - name: Debug authors
         run: |
-          PR_AUTHOR="${{ github.event.workflow_run.user.login }}"
-          PR_LABELS="${{ github.event.workflow_run.labels.*.name }}"
-          IS_LABEL="${{ contains( github.event.workflow_run.labels.*.name, 'results') }}"
-          TRUSTED_AUTHORS = ${{ env.TRUSTED_AUTHORS }}
+          PR_AUTHOR="${{ github.event.workflow_run.head_commit.author.username }}"
+          # PR_LABELS="${{ github.event.workflow_run.labels.*.name }}"
+          # IS_LABEL="${{ contains( github.event.workflow_run.labels.*.name, 'results') }}"
+          TRUSTED_AUTHORS=${{ env.TRUSTED_AUTHORS }}
 
           echo "Trusted authors ${TRUSTED_AUTHORS}"
           echo "PR author ${PR_AUTHOR}"
-          echo "PR labels ${PR_LABELS}"
+          # echo "PR labels ${PR_LABELS}"
           echo "IS LABEL ${IS_LABEL}"
 
           echo "Checking if ${PR_AUTHOR} is a trusted author..."
