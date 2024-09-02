@@ -75,14 +75,14 @@ jobs:
       env:
         TRUSTED_AUTHORS: |
           (
-            "PerMac111"
+            "PerMac"
             "hakehuang"
           )
       run: |
-          AUTHOR_USERNAME: ${{ github.event.pull_request.user.login }}"
+          AUTHOR_USERNAME="${{ github.event.pull_request.user.login }}"
           TRUSTED_AUTHORS=${{ env.TRUSTED_AUTHORS }}
           IS_LABEL_RESULTS="${{ contains( github.event.pull_request.labels.*.name, 'results') }}"
-          echo "IS_LABEL_RESULTS ${IS_LABEL_RESULTS}"
+          echo IS_LABEL_RESULTS ${IS_LABEL_RESULTS}
           echo "Checking if ${AUTHOR_USERNAME} is a trusted author..."
           AUTHOR_FOUND=false
           for item in ${TRUSTED_AUTHORS[*]}
