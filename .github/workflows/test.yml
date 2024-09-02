@@ -1,0 +1,36 @@
+name: PR Author Checker
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-author:
+    runs-on: ubuntu-latest
+    env:
+      TRUSTED_AUTHORS: |
+        (
+          "PerMac111"
+          "hakehuang"
+        )
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Merge
+        run: |
+          AUTHOR_USERNAME="${{ github.event.pull_request.user.login }}"
+          TRUSTED_AUTHORS=${{ env.TRUSTED_AUTHORS }}
+          echo "Checking if ${AUTHOR_USERNAME} is a trusted author..."
+          AUTHOR_FOUND=0
+          for item in ${TRUSTED_AUTHORS[*]}
+          do
+            if [[ "$item" == ${AUTHOR_USERNAME} ]]
+            then
+              echo "Found trusted author"
+              AUTHOR_FOUND=1
+            fi
+          done
+
+          echo "Author found is ${AUTHOR_FOUND}"
