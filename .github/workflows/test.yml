@@ -1,0 +1,29 @@
+name: PR Author Checker
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-author:
+    runs-on: ubuntu-latest
+    env:
+      TRUSTED_AUTHORS: ["PerMac", "hakehuang"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Merge
+        run: |
+          AUTHOR_USERNAME="${{ github.event.pull_request.user.login }}"
+          TRUSTED_AUTHORS_JSON=${TRUSTED_AUTHORS}
+          TRUSTED_AUTHORS_JSON_1=${{TRUSTED_AUTHORS}}
+          echo "Checking if ${AUTHOR_USERNAME} is a trusted author..."
+          
+          if echo "${TRUSTED_AUTHORS_JSON}" | jq -e --arg AUTHOR_USERNAME "${AUTHOR_USERNAME}" '. | index(${AUTHOR_USERNAME})' > /dev/null; then
+            echo "${AUTHOR_USERNAME} is a trusted author."
+          else
+            echo "${AUTHOR_USERNAME} is not a trusted author."
+          fi
+        shell: bash
