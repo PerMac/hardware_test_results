@@ -33,6 +33,7 @@ jobs:
         pip3 install wheel setuptools GitPython
         pip3 install junit2html
 
+
     - name: Get changed files
       id: changed-files
       uses: tj-actions/changed-files@v44
@@ -51,6 +52,7 @@ jobs:
         latest=$(scripts/version_mgr.py -L)
         echo "version=${latest}" >> $GITHUB_OUTPUT;
         echo "Latest is ${latest}";
+
         for file in ${ADDED_FILES}; do
           if [[ ${file} == results/* ]]; then
             echo "Verifying content of ${file}"
