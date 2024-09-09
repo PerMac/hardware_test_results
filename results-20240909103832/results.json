@@ -1,0 +1,247 @@
+{
+  "environment": {
+    "os": "posix",
+    "zephyr_version": "9772e053ade8",
+    "toolchain": "zephyr",
+    "commit_date": "2024-07-15T13:27:23+02:00",
+    "run_date": "2024-07-15T18:10:36+00:00",
+    "options": {
+      "testsuite_root": [
+        "nrf/samples",
+        "nrf/applications",
+        "nrf/tests",
+        "sidewalk/samples",
+        "find-my/tests",
+        "find-my/samples",
+        "find-my/applications"
+      ],
+      "integration": true,
+      "subset": "7/10",
+      "shuffle_tests": true,
+      "shuffle_tests_seed": "818",
+      "enable_size_report": true,
+      "disable_unrecognized_section_test": true,
+      "inline_logs": true,
+      "jobs": 8,
+      "outdir": "twister-build",
+      "report_dir": "results_samples",
+      "overflow_as_errors": true,
+      "quarantine_list": ["nrf/scripts/quarantine.yaml"],
+      "verbose": 1
+    }
+  },
+  "testsuites": [
+    {
+      "name": "cellular/location/sample.cellular.location.pgps",
+      "arch": "arm",
+      "platform": "nrf9161dk/nrf9161/ns",
+      "path": "../nrf/samples/cellular/location",
+      "run_id": "bee2c926c47e613bfbd2d88e5d1050a7",
+      "runnable": false,
+      "used_ram": 52681,
+      "used_rom": 180544,
+      "retries": 0,
+      "status": "passed",
+      "execution_time": "0.00",
+      "build_time": "45.57",
+      "testcases": [
+        {
+          "identifier": "sample.cellular.location.pgps",
+          "execution_time": "0.00",
+          "status": "skipped",
+          "reason": "Test was built only"
+        }
+      ]
+    },
+    {
+      "name": "openthread/coap_server/sample.openthread.coap_server",
+      "arch": "arm",
+      "platform": "nrf5340dk/nrf5340/cpuapp",
+      "path": "../nrf/samples/openthread/coap_server",
+      "run_id": "d592ecd588730e3c68ac7917f29d68ed",
+      "runnable": false,
+      "used_ram": 107428,
+      "used_rom": 309634,
+      "retries": 0,
+      "status": "passed",
+      "execution_time": "0.00",
+      "build_time": "68.00",
+      "testcases": [
+        {
+          "identifier": "sample.openthread.coap_server",
+          "execution_time": "0.00",
+          "status": "skipped",
+          "reason": "Test was built only"
+        }
+      ]
+    },
+    {
+      "name": "external_flash/mcuboot.external_flash",
+      "arc        h": "arm",
+      "platform": "nrf54l15pdk/nrf54l15/cpuapp",
+      "path": "../nrf/tests/modules/mcuboot/external_flash",
+      "run_id": "f0a7776f2c31264e17252c181b394a92",
+      "runnable": false,
+      "retries": 0,
+      "status": "filtered",
+      "reason": "Not in testsuite platform allow list",
+      "execution_time": "0.00",
+      "build_time": "0.00",
+      "testcases": [
+        {
+          "identifier": "mcuboot.external_flash.external_flash",
+          "execution_time": "0.00",
+          "status": "filtered",
+          "reason": "Not in testsuite platform allow list"
+        }
+      ]
+    },
+    {
+      "name": "samples/hello_world/sample.basic.helloworld",
+      "arch": "posix",
+      "platform": "native_sim",
+      "path": "samples/hello_world",
+      "run_id": "b3bacec7bf7942f1ee7e7aaebad0d592",
+      "runnable": true,
+      "retries": 0,
+      "status": "error",
+      "reason": "Build failure",
+      "log": "Loading Zephyr default modules (Zephyr base).\n-- Application: /home/maciej/zephyrproject/zephyr/samples/hello_world\n-- CMake version: 3.25.1\n-- Found Python3: /home/maciej/.pyenv/versions/zephyr38/bin/python (found suitable version \"3.8.4\", minimum required is \"3.8\") found components: Interpreter \n-- Cache files will be written to: /home/maciej/.cache/zephyr\n-- Zephyr version: 3.7.0-rc1 (/home/maciej/zephyrproject/zephyr)\n-- Found west (found suitable version \"1.2.0\", minimum required is \"0.14.0\")\n-- Board: native_sim, qualifiers: native\n-- Found host-tools: zephyr 0.16.8 (/home/maciej/zephyr-sdk-0.16.8)\n-- Found toolchain: host (gcc/ld)\n-- Found Dtc: /home/maciej/zephyr-sdk-0.16.8/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version \"1.6.0\", minimum required is \"1.4.6\") \n-- Found BOARD.dts: /home/maciej/zephyrproject/zephyr/boards/native/native_sim/native_sim.dts\n-- Generated zephyr.dts: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/zephyr.dts\n-- Generated devicetree_generated.h: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/include/generated/zephyr/devicetree_generated.h\n-- Including generated dts.cmake file: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/dts.cmake\nParsing /home/maciej/zephyrproject/zephyr/Kconfig\nLoaded configuration '/home/maciej/zephyrproject/zephyr/boards/native/native_sim/native_sim_defconfig'\nMerged configuration '/home/maciej/zephyrproject/zephyr/samples/hello_world/prj.conf'\nMerged configuration '/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/misc/generated/extra_kconfig_options.conf'\nConfiguration saved to '/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/.config'\nKconfig header saved to '/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/include/generated/zephyr/autoconf.h'\n-- Found GnuLd: /usr/bin/ld.bfd (found version \"2.30\") \n-- The C compiler identification is GNU 7.5.0\n-- The CXX compiler identification is GNU 7.5.0\n-- The ASM compiler identification is GNU\n-- Found assembler: /usr/bin/gcc\n-- Using ccache: /usr/bin/ccache\n-- Configuring done\n-- Generating done\nCMake Warning:\n  Manually-specified variables were not used by the project:\n\n    TC_RUNID\n\n\n-- Build files have been written to: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld\n[1/84] Preparing syscall dependency handling\n\n[2/84] Generating include/generated/zephyr/version.h\n-- Zephyr version: 3.7.0-rc1 (/home/maciej/zephyrproject/zephyr), build: v3.7.0-rc1-107-g9d11036748f7\n[3/84] Generating misc/generated/syscalls_subdirs.trigger\n[4/84] Generating misc/generated/syscalls.json, misc/generated/struct_tags.json\n[5/84] Generating include/generated/zephyr/kobj-types-enum.h, include/generated/zephyr/otype-to-str.h, include/generated/zephyr/otype-to-size.h\n[6/84] Generating include/generated/zephyr/driver-validation.h\n[7/84] Generating include/generated/zephyr/syscall_dispatch.c, include/generated/zephyr/syscall_list.h\n[8/84] Building C object zephyr/CMakeFiles/offsets.dir/arch/posix/core/offsets/offsets.c.obj\n[9/84] Generating include/generated/zephyr/offsets.h\n[10/84] Building C object CMakeFiles/app.dir/src/main.c.obj\n[11/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/heap/heap.c.obj\n[12/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_packaged.c.obj\n[13/84] Linking C static library app/libapp.a\n[14/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/printk.c.obj\n[15/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/sem.c.obj\n[16/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/thread_entry.c.obj\n[17/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_complete.c.obj\n[18/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf.c.obj\n[19/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/dec.c.obj\n[20/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/assert.c.obj\n[21/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/timeutil.c.obj\n[22/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/hex.c.obj\n[23/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/rb.c.obj\n[24/84] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitarray.c.obj\n[25/84] Building C object zephyr/CMakeFiles/zephyr.dir/misc/generated/configs.c.obj\n[26/84] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/tracing/tracing_none.c.obj\n[27/84] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/fatal.c.obj\n[28/84] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/cpuhalt.c.obj\n[29/84] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/irq.c.obj\n[30/84] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/swap.c.obj\n[31/84] Linking C static library zephyr/libzephyr.a\n[32/84] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/thread.c.obj\n[33/84] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/posix_core_nsi.c.obj\n[34/84] Building C object zephyr/soc/soc/native/CMakeFiles/soc__native__inf_clock.dir/native_tasks.c.obj\n[35/84] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/cmdline.c.obj\n[36/84] Building C object zephyr/soc/soc/native/CMakeFiles/soc__native__inf_clock.dir/soc.c.obj\n[37/84] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/cpu_wait.c.obj\n[38/84] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/misc.c.obj\n[39/84] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/posix_arch_if.c.obj\n[40/84] Generating linker_zephyr_pre0.cmd\n[41/84] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/nsi_if.c.obj\n[42/84] Building C object zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj\n[43/84] Linking C static library zephyr/arch/arch/posix/core/libarch__posix__core.a\n[44/84] Building C object zephyr/drivers/console/CMakeFiles/drivers__console.dir/posix_arch_console.c.obj\n[45/84] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/irq_handler.c.obj\n[46/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/main_weak.c.obj\n[47/84] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/sys_clock_init.c.obj\n[48/84] Linking C static library zephyr/soc/soc/native/libsoc__native__inf_clock.a\n[49/84] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/native_posix_timer.c.obj\n[50/84] Linking C static library zephyr/drivers/console/libdrivers__console.a\n[51/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/busy_wait.c.obj\n[52/84] Linking C static library zephyr/boards/native/native_sim/libboards__native__native_sim.a\n[53/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/device.c.obj\n[54/84] Linking C static library zephyr/drivers/timer/libdrivers__timer.a\n[55/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/errno.c.obj\n[56/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/fatal.c.obj\n[57/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/init.c.obj\n[58/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/kheap.c.obj\n[59/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mem_slab.c.obj\n[60/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/version.c.obj\n[61/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/float.c.obj\n[62/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mailbox.c.obj\n[63/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/idle.c.obj\n[64/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/msg_q.c.obj\n[65/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mutex.c.obj\n[66/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sem.c.obj\n[67/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/queue.c.obj\n[68/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/stack.c.obj\n[69/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/system_work_q.c.obj\n[70/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/banner.c.obj\n[71/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/condvar.c.obj\n[72/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/priority_queues.c.obj\n[73/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/work.c.obj\n[74/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/thread.c.obj\n[75/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeslicing.c.obj\n[76/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timer.c.obj\n[77/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mempool.c.obj\n[78/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sched.c.obj\n[79/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/dynamic_disabled.c.obj\n[80/84] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeout.c.obj\n[81/84] Linking C static library zephyr/kernel/libkernel.a\n[82/84] Linking C executable zephyr/zephyr.elf\nFAILED: zephyr/zephyr.elf zephyr/zephyr_pre0.map zephyr/zephyr.map zephyr/zephyr.stat /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/zephyr_pre0.map /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/zephyr.map /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/zephyr.stat \n: && ccache /usr/bin/gcc  -gdwarf-4 zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj -o zephyr/zephyr.elf  zephyr/CMakeFiles/offsets.dir/./arch/posix/core/offsets/offsets.c.obj  -fuse-ld=bfd  -T  zephyr/linker_zephyr_pre0.cmd  -Wl,-Map=/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/zephyr_pre0.map  -Wl,--whole-archive  app/libapp.a  zephyr/libzephyr.a  zephyr/arch/arch/posix/core/libarch__posix__core.a  zephyr/soc/soc/native/libsoc__native__inf_clock.a  zephyr/boards/native/native_sim/libboards__native__native_sim.a  zephyr/drivers/console/libdrivers__console.a  zephyr/drivers/timer/libdrivers__timer.a  -Wl,--no-whole-archive  zephyr/kernel/libkernel.a  -L/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr  -r  -Wl,--fatal-warnings  -Wl,--gc-sections  -Wl,--build-id=none  -Wl,--sort-common=descending  -Wl,--sort-section=alignment  -Wl,-u,_OffsetAbsSyms  -Wl,-u,_ConfigAbsSyms  -m32  -Wl,--unresolved-symbols=ignore-all && cd /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr && /usr/bin/cmake -E true && cd /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr && /usr/bin/cmake -E echo Generating\\ files\\ from\\ /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/hello_world/sample.basic.helloworld/zephyr/zephyr.elf\\ for\\ board:\\ native_sim && /usr/bin/cmake -E copy zephyr_pre0.map zephyr.map && /usr/bin/readelf -e zephyr.elf > zephyr.stat\n/usr/bin/ld.bfd: cannot find -lgcc_s\n/usr/bin/ld.bfd: cannot find -lgcc_s\ncollect2: error: ld returned 1 exit status\nninja: build stopped: subcommand failed.\n",
+      "execution_time": "0.00",
+      "build_time": "18.47",
+      "testcases": [
+        {
+          "identifier": "sample.basic.helloworld",
+          "execution_time": "0.00",
+          "status": "blocked",
+          "reason": "Build failure"
+        }
+      ]
+    },
+    {
+      "name": "ref_smp_svr/mcuboot.upgrade.basic",
+      "arch": "arm",
+      "platform": "nrf5340dk/nrf5340/cpuapp/ns",
+      "path": "../tests/ncs/ref_smp_svr",
+      "run_id": "7efa053e79528ffc086dae32868dc876",
+      "runnable": false,
+      "retries": 0,
+      "status": "filtered",
+      "reason": "Not in testsuite platform allow list",
+      "execution_time": "0.00",
+      "build_time": "0.00",
+      "testcases": [
+        {
+          "identifier": "mcuboot.upgrade.basic",
+          "execution_time": "0.00",
+          "status": "filtered",
+          "reason": "Not in testsuite platform allow list"
+        }
+      ]
+    },
+    {
+      "name": "ref_smp_svr/nsib.mcuboot.upgrade.unusable_secondary_slot.nosysbuild",
+      "arch": "arm",
+      "platform": "nrf5340dk/nrf5340/cpuapp/ns",
+      "path": "../tests/ncs/ref_smp_svr",
+      "run_id": "e602782aa658318ff09fc6c268b14e95",
+      "runnable": false,
+      "retries": 0,
+      "status": "filtered",
+      "reason": "Quarantine: Configurations excluded to limit resources usage in integration builds",
+      "execution_time": "0.00",
+      "build_time": "0.00",
+      "testcases": [
+        {
+          "identifier": "nsib.mcuboot.upgrade.unusable_secondary_slot.nosysbuild",
+          "execution_time": "0.00",
+          "status": "filtered",
+          "reason": "Quarantine: Configurations excluded to limit resources usage in integration builds"
+        }
+      ]
+    },
+    {
+      "name": "ref_smp_svr/nsib.mcuboot.upgrade.unusable_secondary_slot.nosysbuild",
+      "arch": "arm",
+      "platform": "nrf5340dk/nrf5340/cpuapp",
+      "path": "../tests/ncs/ref_smp_svr",
+      "run_id": "a62280c92e3237ffbf82285ba3d963ce",
+      "runnable": false,
+      "retries": 0,
+      "status": "filtered",
+      "reason": "Quarantine: Configurations excluded to limit resources usage in integration builds",
+      "execution_time": "0.00",
+      "build_time": "0.00",
+      "testcases": [
+        {
+          "identifier": "nsib.mcuboot.upgrade.unusable_secondary_slot.nosysbuild",
+          "execution_time": "0.00",
+          "status": "filtered",
+          "reason": "Quarantine: Configurations excluded to limit resources usage in integration builds"
+        }
+      ]
+    },
+    {
+      "name": "samples/philosophers/sample.kernel.philosopher.preempt_only",
+      "arch": "posix",
+      "platform": "native_sim",
+      "path": "samples/philosophers",
+      "run_id": "68763913c479d8beb67e2c3a01071b46",
+      "runnable": true,
+      "retries": 0,
+      "status": "error",
+      "reason": "Build failure",
+      "log": "Loading Zephyr default modules (Zephyr base).\n-- Application: /home/maciej/zephyrproject/zephyr/samples/philosophers\n-- CMake version: 3.25.1\n-- Found Python3: /home/maciej/.pyenv/versions/zephyr38/bin/python (found suitable version \"3.8.4\", minimum required is \"3.8\") found components: Interpreter \n-- Cache files will be written to: /home/maciej/.cache/zephyr\n-- Zephyr version: 3.7.0-rc1 (/home/maciej/zephyrproject/zephyr)\n-- Found west (found suitable version \"1.2.0\", minimum required is \"0.14.0\")\n-- Board: native_sim, qualifiers: native\n-- Found host-tools: zephyr 0.16.8 (/home/maciej/zephyr-sdk-0.16.8)\n-- Found toolchain: host (gcc/ld)\n-- Found Dtc: /home/maciej/zephyr-sdk-0.16.8/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version \"1.6.0\", minimum required is \"1.4.6\") \n-- Found BOARD.dts: /home/maciej/zephyrproject/zephyr/boards/native/native_sim/native_sim.dts\n-- Generated zephyr.dts: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/zephyr.dts\n-- Generated devicetree_generated.h: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/include/generated/zephyr/devicetree_generated.h\n-- Including generated dts.cmake file: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/dts.cmake\nParsing /home/maciej/zephyrproject/zephyr/Kconfig\nLoaded configuration '/home/maciej/zephyrproject/zephyr/boards/native/native_sim/native_sim_defconfig'\nMerged configuration '/home/maciej/zephyrproject/zephyr/samples/philosophers/prj.conf'\nMerged configuration '/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/twister/testsuite_extra.conf'\nMerged configuration '/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/misc/generated/extra_kconfig_options.conf'\nConfiguration saved to '/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/.config'\nKconfig header saved to '/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/include/generated/zephyr/autoconf.h'\n-- Found GnuLd: /usr/bin/ld.bfd (found version \"2.30\") \n-- The C compiler identification is GNU 7.5.0\n-- The CXX compiler identification is GNU 7.5.0\n-- The ASM compiler identification is GNU\n-- Found assembler: /usr/bin/gcc\n-- Using ccache: /usr/bin/ccache\n-- Configuring done\n-- Generating done\nCMake Warning:\n  Manually-specified variables were not used by the project:\n\n    TC_RUNID\n\n\n-- Build files have been written to: /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only\n[1/86] Preparing syscall dependency handling\n\n[2/86] Generating include/generated/zephyr/version.h\n-- Zephyr version: 3.7.0-rc1 (/home/maciej/zephyrproject/zephyr), build: v3.7.0-rc1-107-g9d11036748f7\n[3/86] Generating misc/generated/syscalls_subdirs.trigger\n[4/86] Generating misc/generated/syscalls.json, misc/generated/struct_tags.json\n[5/86] Generating include/generated/zephyr/syscall_dispatch.c, include/generated/zephyr/syscall_list.h\n[6/86] Generating include/generated/zephyr/kobj-types-enum.h, include/generated/zephyr/otype-to-str.h, include/generated/zephyr/otype-to-size.h\n[7/86] Generating include/generated/zephyr/driver-validation.h\n[8/86] Building C object zephyr/CMakeFiles/offsets.dir/arch/posix/core/offsets/offsets.c.obj\n[9/86] Generating include/generated/zephyr/offsets.h\n[10/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/sem.c.obj\n[11/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/thread_entry.c.obj\n[12/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/printk.c.obj\n[13/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_packaged.c.obj\n[14/86] Building C object CMakeFiles/app.dir/src/main.c.obj\n[15/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/heap/heap.c.obj\n[16/86] Linking C static library app/libapp.a\n[17/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf.c.obj\n[18/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/hex.c.obj\n[19/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/dec.c.obj\n[20/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/assert.c.obj\n[21/86] Building C object zephyr/CMakeFiles/zephyr.dir/misc/generated/configs.c.obj\n[22/86] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/tracing/tracing_none.c.obj\n[23/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/timeutil.c.obj\n[24/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_complete.c.obj\n[25/86] Generating linker_zephyr_pre0.cmd\n[26/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/rb.c.obj\n[27/86] Building C object zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj\n[28/86] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/debug/thread_info.c.obj\n[29/86] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/fatal.c.obj\n[30/86] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/posix_core_nsi.c.obj\n[31/86] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/irq.c.obj\n[32/86] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/cpuhalt.c.obj\n[33/86] Building C object zephyr/soc/soc/native/CMakeFiles/soc__native__inf_clock.dir/native_tasks.c.obj\n[34/86] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/swap.c.obj\n[35/86] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/cmdline.c.obj\n[36/86] Building C object zephyr/CMakeFiles/zephyr.dir/lib/utils/bitarray.c.obj\n[37/86] Building C object zephyr/arch/arch/posix/core/CMakeFiles/arch__posix__core.dir/thread.c.obj\n[38/86] Linking C static library zephyr/arch/arch/posix/core/libarch__posix__core.a\n[39/86] Linking C static library zephyr/libzephyr.a\n[40/86] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/misc.c.obj\n[41/86] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/posix_arch_if.c.obj\n[42/86] Building C object zephyr/soc/soc/native/CMakeFiles/soc__native__inf_clock.dir/soc.c.obj\n[43/86] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/cpu_wait.c.obj\n[44/86] Linking C static library zephyr/soc/soc/native/libsoc__native__inf_clock.a\n[45/86] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/nsi_if.c.obj\n[46/86] Building C object zephyr/boards/native/native_sim/CMakeFiles/boards__native__native_sim.dir/irq_handler.c.obj\n[47/86] Linking C static library zephyr/boards/native/native_sim/libboards__native__native_sim.a\n[48/86] Building C object zephyr/drivers/console/CMakeFiles/drivers__console.dir/posix_arch_console.c.obj\n[49/86] Linking C static library zephyr/drivers/console/libdrivers__console.a\n[50/86] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/sys_clock_init.c.obj\n[51/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/main_weak.c.obj\n[52/86] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/native_posix_timer.c.obj\n[53/86] Linking C static library zephyr/drivers/timer/libdrivers__timer.a\n[54/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/busy_wait.c.obj\n[55/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/banner.c.obj\n[56/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/device.c.obj\n[57/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/fatal.c.obj\n[58/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/errno.c.obj\n[59/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/version.c.obj\n[60/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/init.c.obj\n[61/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/kheap.c.obj\n[62/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mem_slab.c.obj\n[63/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/float.c.obj\n[64/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/idle.c.obj\n[65/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/msg_q.c.obj\n[66/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mailbox.c.obj\n[67/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mutex.c.obj\n[68/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sem.c.obj\n[69/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/stack.c.obj\n[70/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/queue.c.obj\n[71/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/system_work_q.c.obj\n[72/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/condvar.c.obj\n[73/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/priority_queues.c.obj\n[74/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/thread.c.obj\n[75/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/work.c.obj\n[76/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeslicing.c.obj\n[77/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/thread_monitor.c.obj\n[78/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeout.c.obj\n[79/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mempool.c.obj\n[80/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timer.c.obj\n[81/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/dynamic_disabled.c.obj\n[82/86] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sched.c.obj\n[83/86] Linking C static library zephyr/kernel/libkernel.a\n[84/86] Linking C executable zephyr/zephyr.elf\nFAILED: zephyr/zephyr.elf zephyr/zephyr_pre0.map zephyr/zephyr.map zephyr/zephyr.stat /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/zephyr_pre0.map /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/zephyr.map /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/zephyr.stat \n: && ccache /usr/bin/gcc  -gdwarf-4 zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj -o zephyr/zephyr.elf  zephyr/CMakeFiles/offsets.dir/./arch/posix/core/offsets/offsets.c.obj  -fuse-ld=bfd  -T  zephyr/linker_zephyr_pre0.cmd  -Wl,-Map=/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/zephyr_pre0.map  -Wl,--whole-archive  app/libapp.a  zephyr/libzephyr.a  zephyr/arch/arch/posix/core/libarch__posix__core.a  zephyr/soc/soc/native/libsoc__native__inf_clock.a  zephyr/boards/native/native_sim/libboards__native__native_sim.a  zephyr/drivers/console/libdrivers__console.a  zephyr/drivers/timer/libdrivers__timer.a  -Wl,--no-whole-archive  zephyr/kernel/libkernel.a  -L/home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr  -r  -Wl,--fatal-warnings  -Wl,--gc-sections  -Wl,--build-id=none  -Wl,--sort-common=descending  -Wl,--sort-section=alignment  -Wl,-u,_OffsetAbsSyms  -Wl,-u,_ConfigAbsSyms  -m32  -Wl,--unresolved-symbols=ignore-all && cd /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr && /usr/bin/cmake -E true && cd /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr && /usr/bin/cmake -E echo Generating\\ files\\ from\\ /home/maciej/zephyrproject/zephyr/twister-out/native_sim/samples/philosophers/sample.kernel.philosopher.preempt_only/zephyr/zephyr.elf\\ for\\ board:\\ native_sim && /usr/bin/cmake -E copy zephyr_pre0.map zephyr.map && /usr/bin/readelf -e zephyr.elf > zephyr.stat\n/usr/bin/ld.bfd: cannot find -lgcc_s\n/usr/bin/ld.bfd: cannot find -lgcc_s\ncollect2: error: ld returned 1 exit status\nninja: build stopped: subcommand failed.\n",
+      "execution_time": "0.00",
+      "build_time": "20.36",
+      "testcases": [
+        {
+          "identifier": "sample.kernel.philosopher.preempt_only",
+          "execution_time": "0.00",
+          "status": "blocked",
+          "reason": "Build failure"
+        }
+      ]
+    },
+    {
+      "name": "samples/philosophers/sample.kernel.philosopher.coop_only",
+      "arch": "posix",
+      "platform": "native_posix",
+      "path": "samples/philosophers",
+      "run_id": "cfc746eb9dbed5df70de76c56d1b6a1a",
+      "runnable": true,
+      "retries": 0,
+      "status": "passed",
+      "execution_time": "2.71",
+      "build_time": "21.03",
+      "testcases": [
+        {
+          "identifier": "sample.kernel.philosopher.coop_only",
+          "execution_time": "2.71",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "name": "samples/hello_world/sample.basic.helloworld",
+      "arch": "arm",
+      "platform": "qemu_cortex_m3",
+      "path": "samples/hello_world",
+      "run_id": "2d12f73118b345734b465bd8874824e2",
+      "runnable": true,
+      "retries": 0,
+      "status": "failed",
+      "reason": "Timeout",
+      "log": "*** Booting Zephyr OS build v3.7.0-rc1-134-g7f0f0a4f97d6 ***\r\nHello World! qemu_cortex_m3/ti_lm3s6965\r\n",
+      "execution_time": "59.95",
+      "build_time": "8.45",
+      "testcases": [
+        {
+          "identifier": "sample.basic.helloworld",
+          "execution_time": "59.95",
+          "status": "failed"
+        }
+      ]
+    }
+  ]
+}
